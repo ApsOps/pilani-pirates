@@ -2,3 +2,5 @@
 *~
 .project
 *.db
+*.sublime-project
+*.sublime-workspace
