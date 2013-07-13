@@ -1,7 +1,6 @@
 from django.contrib import admin
 from pirate_site.models import *
+from django.db.models import get_app, get_models
 
-admin.site.register(Movie)
-admin.site.register(Series)
-admin.site.register(Game)
-admin.site.register(App)
+for model in get_models(get_app('pirate_site')):
+    admin.site.register(model)

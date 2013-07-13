@@ -1,0 +1,53 @@
+{% extends "pirate_site/header.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="small-font">
+    <div id="detailsouterframe">
+        <div id="detailsframe">
+            <div id="title">
+                {{ data.title }}
+            </div>
+            <div id="details" class="clearfix">
+                <dl class="col1">
+                    <dt>Category:</dt>
+                    <dd>
+                        <a href="/{{ data.get_model_name|lower }}" title="More from this category">{{ data.get_model_name }}</a>
+                    </dd>
+                    <dt>Size:</dt>
+                    <dd>[[ SIZE ]]</dd>
+                </dl>
+
+                <dl class="col2">
+                    <dt>Uploaded:</dt>
+                    <dd>{{ data.date_released }}</dd>
+                    <dt>By:</dt>
+                    <dd>
+                        <a href="http://unblockedpiratebay.com/?loadurl=/user/Drarbg/" title="Browse Drarbg">Drarbg</a>&nbsp;<img src="Killing.Season.2013.1080p.WEB-DL.H264-WEBiOS%20%28download%20torrent%29%20-%20TPB_files/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0">
+                    </dd>
+                </dl>
+
+                <br /><br /><br /><br />
+
+                <div class="download">
+                    <a style="background-image: url({% static "img/icon-magnet.gif" %});" rel="nofollow" href="magnet:{{ data.magnet }}" title="Get this file">&nbsp;Get this file</a>
+                </div>
+
+                <div>(Problems with magnets links are fixed by upgrading your <a href="/PUT APEX DC DOWNLOAD LINK HERE" target="_blank">DC++ client</a>!)
+                </div>
+
+                <div class="nfo">
+                    <pre>{{ data.title }}  {{ data.rating }}  {{ data.magnet }}  [[ PUT data.details HERE ]]</pre>
+                </div>
+
+                <div class="download">
+                    <a style="background-image: url({% static "img/icon-magnet.gif" %});" rel="nofollow" href="magnet:{{ data.magnet }}" title="Get this file">&nbsp;Get this file</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

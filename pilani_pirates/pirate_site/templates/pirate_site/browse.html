@@ -1,0 +1,39 @@
+{% extends "pirate_site/header.html" %}
+{% load staticfiles %}
+
+{% block browse %}Browse all files{% endblock %}
+
+{% block content %}
+
+<table id="searchResult" class="small-font">
+<thead id="tableHead">
+<tr class="header">
+{% block category_column %}<th>Category</th>{% endblock %}
+<th>
+  <div class="sortby">Name</div>
+</th>
+<th>Uploaded</th>
+<th>Download</th>
+<th>Size</th>
+<th><abbr title="Seeders">SE</abbr></th>
+</tr>
+</thead>
+{% block loop_content %}
+
+{% for f in data %}
+{% for e in f %}
+<tr>
+<td class="vertTh"><a href="/{{ e.get_model_name|lower }}" title="More from this category">{{ e.get_model_name }}</a></td>
+<td><a href="/{{ e.get_model_name|lower }}/{{ e.id }}" title="Details for {{ e.title }}">{{ e.title }}</a></td>
+<td>{{ e.date_released }}</td>
+<td><nobr><a href="magnet:{{ e.magnet }}" title="Download this file"><img src="{% static "img/dl.gif" %}" class="dl" alt="Download" /></a>
+<td align="right">[[ SIZE ]]</td>
+<td align="right"></td>
+</tr>
+{% endfor %}
+{% endfor %}
+
+{% endblock loop_content %}
+</table>
+
+{% endblock content %}

@@ -2,7 +2,7 @@
 
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -28,7 +28,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -66,17 +66,18 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/var/www/static/pilani_pirates/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://127.0.0.1/static/pilani_pirates/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_DIR, 'sitestatic'),
 )
 
 # List of finder classes that know how to find static files in
@@ -116,6 +117,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (

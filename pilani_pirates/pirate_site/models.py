@@ -16,6 +16,9 @@ class Common(models.Model):
     def __unicode__(self):
         return self.id
 
+    def get_model_name(self):
+        return self._meta.verbose_name
+
 
 class Movie(Common):
     date_released = models.DateField()

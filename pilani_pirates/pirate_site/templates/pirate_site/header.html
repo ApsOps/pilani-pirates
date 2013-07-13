@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<a href="/" class="logo-small"></a>
+<div class="top-right">
+<nav>
+    <ul>
+        <li class="label"><strong>Search files</strong></li>
+        <li><a href="/browse">Browse files</a></li>
+        <li><a href="/movie">Movies</a></li>
+        <li><a href="/series">TV Series</a></li>
+        <li><a href="/game">Games</a></li>
+        <li><a href="/app">Apps</a></li>
+    </ul>    
+</nav>
+
+<form class="searchfield" name="search" method="get" action="/ajax_search/search/" autocomplete="off">
+{% csrf_token %}
+{{ searchform.q }}
+    <p class="clearfix">
+        <input class="search-input" type="search" name="search" autofocus required placeholder="Pirate Search"/>
+        <input type="image" id="searchbuttonmain" class="subbtn" src="{% static "img/search-icon.png" %}" title="Pirate Search" />
+    </p>
+    <p id="nav-links" class="small-font">
+        <input type="checkbox" id="all" value="All" />
+        <label for="all">All</label>
+        <input type="checkbox" id="movie" value="Movie" />
+        <label for="movie">Movies</label>
+        <input type="checkbox" id="series" value="Series" />
+        <label for="series">TV Series</label>
+        <input type="checkbox" id="game" value="Game" />
+        <label for="game">Games</label>
+        <input type="checkbox" id="app" value="App" />
+        <label for="app">Applications</label>
+    </p>
+</form>
+</div>
+
+<hr />
+<h3>{% block browse %}Details for this file{% endblock %}</h3>
+{% endblock header %}
