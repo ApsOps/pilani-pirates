@@ -1,2 +1,5 @@
+Refine models {using south}
+Use sizefield
 Implement search
 Implement results coming on next page {using pagination}
+Write script for auto database entry
