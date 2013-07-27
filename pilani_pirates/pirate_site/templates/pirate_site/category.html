@@ -1,4 +1,6 @@
 {% extends "pirate_site/browse.html" %}
+{% load staticfiles %}
+{% load sizefieldtags %}
 
 {% block browse %}Browse {{ category|capfirst }} files{% endblock %}
 
@@ -9,9 +11,9 @@
 {% for e in data %}
 <tr>
 <td><a href="/{{ category }}/{{ e.id }}" title="Details for {{ e.title }}">{{ e.title }}</a></td>
-<td>{{ e.date_released }}</td>
-<td><nobr><a href="magnet:{{ e.magnet }}" title="Download this file"><img src="/static/img/dl.gif" class="dl" alt="Download" /></a>
-<td align="right">[[ SIZE ]]</td>
+<td>{{ e.date_uploaded }}</td>
+<td><nobr><a href="magnet:{{ e.magnet }}" title="Download this file"><img src="{% static "img/dl.gif" %}" class="dl" alt="Download" /></a>
+<td align="right">{{ e.filesize|filesize }}</td>
 <td align="right"></td>
 </tr>
 {% endfor %}

@@ -1,5 +1,4 @@
-Refine models {using south}
-Use sizefield
-Implement search
-Implement results coming on next page {using pagination}
-Write script for auto database entry
+# Refine Models removing the abstract base class, use single Model with "category" field and detail Model for details maybe
+# Implement search
+# Implement results coming on next page {using pagination}
+# Write script for auto database entry

@@ -133,6 +133,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'pirate_site',
     'south',
+    'sizefield'
 )
 
 # A sample logging configuration. The only tangible logging

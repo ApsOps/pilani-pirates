@@ -1,5 +1,6 @@
 {% extends "pirate_site/header.html" %}
 {% load staticfiles %}
+{% load sizefieldtags %}
 
 {% block content %}
 
@@ -16,12 +17,12 @@
                         <a href="/{{ data.get_model_name|lower }}" title="More from this category">{{ data.get_model_name }}</a>
                     </dd>
                     <dt>Size:</dt>
-                    <dd>[[ SIZE ]]</dd>
+                    <dd>{{ data.filesize|filesize }}</dd>
                 </dl>
 
                 <dl class="col2">
                     <dt>Uploaded:</dt>
-                    <dd>{{ data.date_released }}</dd>
+                    <dd>{{ data.date_uploaded }}</dd>
                     <dt>By:</dt>
                     <dd>
                         <a href="http://unblockedpiratebay.com/?loadurl=/user/Drarbg/" title="Browse Drarbg">Drarbg</a>&nbsp;<img src="Killing.Season.2013.1080p.WEB-DL.H264-WEBiOS%20%28download%20torrent%29%20-%20TPB_files/vip.gif" alt="VIP" title="VIP" style="width:11px;" border="0">

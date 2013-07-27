@@ -1,4 +1,5 @@
 from django.db import models
+from sizefield import models as sizefield_models
 
 # Create your models here.
 
@@ -6,7 +7,9 @@ from django.db import models
 class Common(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField(max_length=100)
-    magnet = models.CharField(max_length=100)
+    magnet = models.CharField(max_length=100, unique=True)
+    filesize = sizefield_models.FileSizeField(default=0)
+    date_uploaded = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         abstract = True
@@ -21,12 +24,12 @@ class Common(models.Model):
 
 
 class Movie(Common):
-    date_released = models.DateField()
-    rating = models.FloatField()
-    genre = models.CharField(max_length=100)
-    runtime = models.IntegerField()
-    cast = models.CharField(max_length=100)
-    trailer_link = models.CharField(max_length=100)
+    date_released = models.DateField(null=True)
+    rating = models.FloatField(null=True)
+    genre = models.CharField(null=True, max_length=100)
+    runtime = models.IntegerField(null=True)
+    cast = models.CharField(null=True, max_length=100)
+    trailer_link = models.CharField(null=True, max_length=100)
 
     class Meta:
         verbose_name = ('Movie')
@@ -37,10 +40,10 @@ class Movie(Common):
 
 
 class Series(Common):
-    rating = models.FloatField()
-    genre = models.CharField(max_length=100)
-    runtime = models.IntegerField()
-    cast = models.CharField(max_length=100)
+    rating = models.FloatField(null=True)
+    genre = models.CharField(null=True, max_length=100)
+    runtime = models.IntegerField(null=True)
+    cast = models.CharField(null=True, max_length=100)
 
     class Meta:
         verbose_name = ('Series')
@@ -51,10 +54,10 @@ class Series(Common):
 
 
 class Game(Common):
-    date_released = models.DateField()
-    rating = models.FloatField()
-    genre = models.CharField(max_length=100)
-    trailer_link = models.CharField(max_length=100)
+    date_released = models.DateField(null=True)
+    rating = models.FloatField(null=True)
+    genre = models.CharField(null=True, max_length=100)
+    trailer_link = models.CharField(null=True, max_length=100)
 
     class Meta:
         verbose_name = ('Game')
@@ -65,9 +68,9 @@ class Game(Common):
 
 
 class App(Common):
-    date_released = models.DateField()
-    rating = models.FloatField()
-    genre = models.CharField(max_length=100)  # os supported
+    date_released = models.DateField(null=True)
+    rating = models.FloatField(null=True)
+    genre = models.CharField(null=True, max_length=100)  # os supported
 
     class Meta:
         verbose_name = ('App')
