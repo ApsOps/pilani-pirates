@@ -14,7 +14,7 @@
 <td>{{ e.date_uploaded }}</td>
 <td><nobr><a href="magnet:{{ e.magnet }}" title="Download this file"><img src="{% static "img/dl.gif" %}" class="dl" alt="Download" /></a>
 <td align="right">{{ e.filesize|filesize }}</td>
-<td align="right"></td>
+<td align="right">{{ e.hits }}</td>
 </tr>
 {% endfor %}
 

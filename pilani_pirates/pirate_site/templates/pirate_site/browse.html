@@ -16,19 +16,19 @@
 <th>Uploaded</th>
 <th>Download</th>
 <th>Size</th>
-<th><abbr title="Seeders">SE</abbr></th>
+<th><abbr title="Hits">Hits</abbr></th>
 </tr>
 </thead>
 {% block loop_content %}
 
 {% for e in data %}
 <tr>
-<td class="vertTh"><a href="/{{ e.get_model_name|lower }}" title="More from this category">{{ e.get_model_name }}</a></td>
-<td><a href="/{{ e.get_model_name|lower }}/{{ e.id }}" title="Details for {{ e.title }}">{{ e.title }}</a></td>
+<td class="vertTh"><a href="/{{ e.category }}" title="More from this category">{{ e.get_category_display }}</a></td>
+<td><a href="/{{ e.category }}/{{ e.id }}" title="Details for {{ e.title }}">{{ e.title }}</a></td>
 <td>{{ e.date_uploaded }}</td>
 <td><nobr><a href="magnet:{{ e.magnet }}" title="Download this file"><img src="{% static "img/dl.gif" %}" class="dl" alt="Download" /></a>
 <td align="right">{{ e.filesize|filesize }}</td>
-<td align="right"></td>
+<td align="right">{{ e.hits }}</td>
 </tr>
 {% endfor %}
 

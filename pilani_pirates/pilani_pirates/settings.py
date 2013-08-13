@@ -2,7 +2,7 @@
 
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -25,6 +25,14 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+
+CATEGORIES = (
+        ('movie' , 'Movie'),
+        ('series', 'Series'),
+        ('game' , 'Game'),
+        ('app' , 'App'),
+        ('other' , 'Other'),
+        )
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
