@@ -16,11 +16,10 @@
     </ul>    
 </nav>
 
-<form class="searchfield" name="search" method="get" action="/ajax_search/search/" autocomplete="off">
+<form class="searchfield" name="search" method="get" action="/search/" autocomplete="off">
 {% csrf_token %}
-{{ searchform.q }}
     <p class="clearfix">
-        <input class="search-input" type="search" name="search" autofocus required placeholder="Pirate Search"/>
+        <input class="search-input" type="search" name="q" autofocus required placeholder="Pirate Search"/>
         <input type="image" id="searchbuttonmain" class="subbtn" src="{% static "img/search-icon.png" %}" title="Pirate Search" />
     </p>
     <p id="nav-links" class="small-font">

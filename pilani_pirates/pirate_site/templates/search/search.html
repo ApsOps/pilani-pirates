@@ -1,0 +1,42 @@
+{% extends 'pirate_site/browse.html' %}
+{% load staticfiles %}
+{% load sizefieldtags %}
+
+{% block browse %}Search results: {{ q }}{% endblock %}
+
+{% block loop_content %}
+
+    {% if query %}
+        {% for result in page.object_list %}
+
+    <tr>
+        <td class="vertTh"><a href="/{{ result.object.category }}/" title="More from this category">{{ result.object.get_category_display }}</a></td>
+        <td><a href="/{{ result.object.category }}/{{ result.object.id }}/" title="Details for {{ result.object.title }}">{{ result.object.title }}</a></td>
+        <td>{{ result.object.date_uploaded }} </td>
+        <td><nobr>
+            <a href="magnet:{{ result.object.magnet }}" title="Download this file using magnet"><img src="{% static "img/dl.gif" %}" alt="Magnet link" /></a>
+        </nobr></td>
+        <td align="right">{{ result.object.filesize|filesize }}</td>
+        <td align="right">{{ result.object.hits }}</td>
+    </tr>
+
+    {% empty %}
+        </table>
+        <p>No results found.</p>
+        <table>
+
+    {% endfor %}
+    
+
+    {% if page.has_previous or page.has_next %}
+        <div>
+            {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+            |
+            {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+        </div>
+    {% endif %}
+{% else %}
+    {# Show some example queries to run, maybe query syntax, something else? #}
+{% endif %}
+
+{% endblock loop_content %}

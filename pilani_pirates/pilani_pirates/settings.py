@@ -34,6 +34,15 @@ CATEGORIES = (
         ('other' , 'Other'),
         )
 
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr'
+        # ...or for multicore...
+        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
+    },
+}
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['*']
@@ -78,7 +87,7 @@ STATIC_ROOT = '/var/www/static/pilani_pirates/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = 'http://127.0.0.1/static/pilani_pirates/'
+STATIC_URL = 'http://172.16.13.39/static/pilani_pirates/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -141,7 +150,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'pirate_site',
     'south',
-    'sizefield'
+    'sizefield',
+    'haystack',
 )
 
 # A sample logging configuration. The only tangible logging

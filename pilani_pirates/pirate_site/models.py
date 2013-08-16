@@ -47,7 +47,9 @@ class File(models.Model):
                     output += "\n\nDirector:\t" + data["Director"]
                     output += "\n\nWriter:\t\t" + data["Writer"]
                     output += "\n\nStars:\t\t" + data["Actors"]
-                    output += "\n\n</pre><img src='" + data["Poster"] + "' />"
+                    output += "\n\n</pre><span id='poster'></span><script>document.getElementById('poster').innerHTML = ReferrerKiller.imageHtml('" + data["Poster"][:-8] + "Y300.jpg');</script>"
                     return output
+            else:
+                return ""
         except:
             return "error in getting info."
