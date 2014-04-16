@@ -10,14 +10,14 @@ import requests
 class File(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField(max_length=100)
-    magnet = models.CharField(max_length=100, unique=True)
+    magnet = models.CharField(max_length=500, unique=True)
     filesize = sizefield_models.FileSizeField(default=0)
     date_uploaded = models.DateTimeField(auto_now_add=True)
     uploader = models.ForeignKey(User, default="SIDS")
     category = models.CharField(max_length=100, choices=CATEGORIES)
     verified = models.BooleanField(default=False)
     hits = models.IntegerField(default=0)
-    infoId = models.CharField(max_length=100, null=True)
+    imdb_ID = models.CharField(max_length=100, null=True)
 
     class Meta:
         verbose_name = ('File')
@@ -29,7 +29,7 @@ class File(models.Model):
     def getInfo(self):
         try:
             category = self.category
-            imdbID = self.infoId
+            imdbID = self.imdb_ID
             if category == "movie":
                 url = "http://www.omdbapi.com/?i="
                 jsonData = requests.get(url+imdbID)

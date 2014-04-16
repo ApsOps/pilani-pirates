@@ -87,7 +87,7 @@ STATIC_ROOT = '/var/www/static/pilani_pirates/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = 'http://172.16.13.39/static/pilani_pirates/'
+STATIC_URL = '/static/pilani_pirates/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
