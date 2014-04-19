@@ -5,3 +5,5 @@
 *.sublime-project
 *.sublime-workspace
 pilani_pirates/pirate_site/migrations/
+pilani_pirates/pilani_pirates/collectedstatic/
+pilani_pirates/pilani_pirates/media/
