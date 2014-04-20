@@ -1,0 +1,12 @@
+Django==1.5
+South==0.8.4
+argparse==1.2.1
+cssselect==0.9.1
+django-haystack==2.1.0
+django-sizefield==0.4
+lxml==3.3.5
+pyquery==1.2.8
+pysolr==3.2.0
+requests==2.2.1
+uWSGI==2.0.3
+wsgiref==0.1.2
